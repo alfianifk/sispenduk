@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DusunController;
 
 
 /*
@@ -22,20 +23,31 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('actionlogin', [AuthController::class, 'actionlogin'])->name('actionlogin');
 
-Route::post('actionlogout', [AuthController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/articles/{article}', [HomeController::class, 'show']);
 
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::middleware('auth')->group(function(){
+    Route::post('actionlogout', [AuthController::class, 'actionlogout'])->name('actionlogout');
 
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard-admin')->middleware('auth');
-Route::get('/input-data', [AdminController::class, 'inputData'])->name('input-data')->middleware('auth');
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
-Route::post('/penduduk/store', [AdminController::class, 'store'])->name('penduduk.store')->middleware('auth');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard-admin');
+    Route::get('/input-data', [AdminController::class, 'inputData'])->name('input-data');
 
-Route::get('/penduduk/edit/{id}', [AdminController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
+    Route::post('/penduduk/store', [AdminController::class, 'store'])->name('penduduk.store');
 
-Route::post('/penduduk/update/{id}', [AdminController::class, 'update'])->name('penduduk.update');
+    Route::get('/penduduk/edit/{id}', [AdminController::class, 'edit'])->name('penduduk.edit');
 
-Route::get('/penduduk/delete/{id}', [AdminController::class, 'delete'])->name('penduduk.delete')->middleware('auth');
+    Route::post('/penduduk/update/{id}', [AdminController::class, 'update'])->name('penduduk.update');
+
+    Route::get('/penduduk/delete/{id}', [AdminController::class, 'delete'])->name('penduduk.delete');
+
+    Route::get('/artikel', [AdminController::class, 'artikel'])->name('artikel');
+    Route::get('/tambah-artikel-baru', [AdminController::class, 'tambahArtikel'])->name('tambah-artikel-baru');
+    Route::get('/artikel/delete/{id}', [AdminController::class, 'deleteArtikel'])->name('delete-artikel');
+    Route::post('/input-artikel', [AdminController::class, 'storeArticle'])->name('input-artikel');
+
+    Route::resource('/dusun', DusunController::class);
+});

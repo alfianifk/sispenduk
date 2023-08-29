@@ -15,12 +15,15 @@
 </footer>
 </div>
 </div>
-<script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/pages/horizontal-layout.js"></script>
+<script src="{{ asset("assets/js/bootstrap.js") }}"></script>
+<script src="{{ asset("assets/js/app.js") }}"></script>
+<script src="{{ asset("assets/js/pages/horizontal-layout.js") }}"></script>
 
-<script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
+<script src="{{ asset("assets/extensions/apexcharts/apexcharts.min.js") }}"></script>
+<script src="{{ asset("assets/js/pages/dashboard.js") }}"></script>
+<script src="assets/extensions/summernote/summernote-lite.min.js"></script>
+<script src="assets/static/js/pages/summernote.js"></script>
+
 
 {{-- <script>
     var mymap = L.map('mapid').setView([-7.374, 108.250], 13);

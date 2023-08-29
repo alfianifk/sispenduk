@@ -17,3 +17,6 @@
 
 <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="assets/js/pages/simple-datatables.js"></script>
+
+<script src="assets/extensions/summernote/summernote-lite.min.js"></script>
+<script src="assets/static/js/pages/summernote.js"></script>

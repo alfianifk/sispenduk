@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Penduduk;
+use App\Models\Dusun;
 
 class KK extends Model
 {
@@ -15,6 +16,10 @@ class KK extends Model
 
     public function penduduk() {
         return $this->hasMany(Penduduk::class);
+    }
+
+    public function dusun() {
+        return $this->hasMany(Dusun::class);
     }
 
     // public function pendudukDetails() {

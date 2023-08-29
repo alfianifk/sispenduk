@@ -105,21 +105,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                         <label for="pekerjaan[]">Pekerjaan</label>
-                        <fieldset class="form-group">
-                        <select required class="form-select" name="pekerjaan[]" id="pekerjaan[]">
-                          <option>== Pilih Pekerjaan ==</option>
-                          <option value="TAMAT SD/SEDERAJAT">TAMAT SD/SEDERAJAT</option>
-                          <option value="TIDAK/BELUM SEKOLAH">TIDAK/BELUM SEKOLAH</option>
-                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
-                          <option value="SLTP/SEDERAJAT">SLTP/SEDERAJAT</option>
-                          <option value="BELUM TAMAT SD/SEDERAJAT">BELUM TAMAT SD/SEDERAJAT</option>
-                          <option value="DIPLOMA IV/STRATA I">DIPLOMA IV/STRATA I</option>
-                          <option value="DIPLOMA I/II">DIPLOMA I/II</option>
-                          <option value="AKADEMI/DIPLOMA III/S. MUDA">AKADEMI/DIPLOMA III/S. MUDA</option>
-                          <option value="STRATA II">STRATA II</option>
-                          <option value="STRATA III">STRATA III</option>
-                        </select>
-                        </fieldset>
+                        <input required type="text" class="form-control" id="pekerjaan[]" name="pekerjaan[]" placeholder="Masukan Pekerjaan"/>
                         </div>
                     </div>
                     {{-- END COL 8 --}}

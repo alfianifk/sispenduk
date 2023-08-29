@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 //import PendudukModel
 use App\Models\Penduduk;
 use App\Models\KK;
+use App\Models\Dusun;
+use App\Models\Article;
 use Illuminate\Support\Facades\DB;
 
 //return type view
@@ -19,13 +21,19 @@ class AdminController extends Controller
     public function index() {
         $penduduk = Penduduk::all();
         $title = "Dashboard";
-        return view('admin.dashboard', compact('penduduk', 'title'));
+        $pendudukCount = Penduduk::count();
+        $kkCount = KK::count();
+        $dusunCount = Dusun::count();
+        $artikelCount = Article::count();
+
+        return view('admin.dashboard', compact('penduduk', 'title', 'pendudukCount', 'kkCount', 'dusunCount', 'artikelCount'));
         
     }
 
     public function inputData() {
+        $dusun = Dusun::all();
         $title = "Input Data";
-        return view('admin.inputdata', compact('title'));
+        return view('admin.inputdata', compact('title', 'dusun'));
     }
 
     public function edit($id) {
@@ -58,6 +66,7 @@ class AdminController extends Controller
         //return to dashboard
         return redirect()->route('dashboard-admin')->with('success', 'Data berhasil diupdate');
     }
+    
     public function store(Request $request) {
         // dd($request);
         DB::beginTransaction();
@@ -106,6 +115,36 @@ class AdminController extends Controller
     public function delete($id) {
         $penduduk = Penduduk::find($id);
         $penduduk->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
+    }
+
+    public function artikel() {
+        $articles = Article::all();
+        $title = "Artikel";
+        return view('admin.artikel', compact('title', 'articles'));
+    }
+
+    public function tambahArtikel() {
+        $title = "Artikel";
+        return view('admin.tambah-artikel-baru', compact('title'));
+    }
+
+    public function storeArticle(Request $request) {
+    $validatedData = $request->validate([
+        'title' => 'required|max:255',
+        'author' => 'required',
+        'content' => 'required'
+    ]);
+
+    Article::create($validatedData);
+
+    return redirect()->route('artikel')->with('success', 'Artikel berhasil disimpan.');
+    }
+
+
+    public function deleteArtikel($id) {
+        $article = Article::find($id);
+        $article->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }

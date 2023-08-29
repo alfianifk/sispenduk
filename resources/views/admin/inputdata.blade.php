@@ -86,11 +86,9 @@
                       <fieldset class="form-group">
                         <select required class="form-select" id="alamat" name="dusun_id">
                           <option>== Pilih Dusun ==</option>
-                          <option value="1">Singkir 1</option>
-                          <option value="2" >Singkir 2</option>
-                          <option value="3">Desakolot</option>
-                          <option value="4">Jadimulya</option>
-                          <option value="5">Ciheulang</option>
+                          @foreach( $dusun as $data)
+                            <option value="{{ $data->id }}">{{ $data->nama_dusun }}</option>
+                          @endforeach
                         </select>
                       </fieldset>
                     </div>

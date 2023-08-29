@@ -35,7 +35,7 @@
         class="sidebar-item {{ $title == 'Input Data' ? 'active' : ' ' }} ">
         <a href="/input-data" class='sidebar-link'>
             <i class="bi bi-person-plus-fill"></i>
-            <span>Input Data</span>
+            <span>Input Data Penduduk </span>
         </a>
         </li>
         
@@ -65,10 +65,18 @@
         </li>       
 
         <li
-        class="sidebar-item  ">
-        <a href="index.html" class='sidebar-link'>
+        class="sidebar-item {{ $title == 'Artikel' ? 'active' : ' ' }} ">
+        <a href="/artikel" class='sidebar-link'>
             <i class="bi bi-journal"></i>
             <span>Artikel</span>
+        </a>
+        </li>
+
+        <li
+        class="sidebar-item {{ $title == 'Dusun' ? 'active' : ' ' }}  ">
+        <a href="/dusun" class='sidebar-link'>
+            <i class="bi bi-person-circle"></i>
+            <span>Data Dusun</span>
         </a>
         </li>
 

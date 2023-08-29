@@ -6,11 +6,26 @@
             
     <section class="section">
     @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
+            <div class="alert alert-success alert-dismissible show fade">{{ session('success') }}
+              <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+            
+            </div>
             @endif
         
             @if(session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
+                <div class="alert alert-danger alert-dismissible show fade">{{ session('error') }}
+                  <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"
+                    ></button>
+                </div>
             @endif
         <div class="alert alert-info alert-dismissible show fade">
             Data ini diambil per {{ date("M Y") }} dan di reset setiap bulan
@@ -37,7 +52,7 @@
                       <h6 class="text-muted font-semibold">
                         Jumlah Penduduk
                       </h6>
-                      <h6 class="font-extrabold mb-0">112.000</h6>
+                      <h6 class="font-extrabold mb-0">{{ $pendudukCount }}</h6>
                     </div>
                   </div>
                 </div>
@@ -56,7 +71,7 @@
                     </div>
                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                       <h6 class="text-muted font-semibold">Jumlah KK</h6>
-                      <h6 class="font-extrabold mb-0">183.000</h6>
+                      <h6 class="font-extrabold mb-0">{{ $kkCount }}</h6>
                     </div>
                   </div>
                 </div>
@@ -75,7 +90,7 @@
                     </div>
                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                       <h6 class="text-muted font-semibold">Jumlah Dusun</h6>
-                      <h6 class="font-extrabold mb-0">80.000</h6>
+                      <h6 class="font-extrabold mb-0">{{ $dusunCount }}</h6>
                     </div>
                   </div>
                 </div>
@@ -93,8 +108,8 @@
                       </div>
                     </div>
                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                      <h6 class="text-muted font-semibold">Meninggal</h6>
-                      <h6 class="font-extrabold mb-0">112</h6>
+                      <h6 class="text-muted font-semibold">Article</h6>
+                      <h6 class="font-extrabold mb-0">{{ $artikelCount }}</h6>
                     </div>
                   </div>
                 </div>
@@ -152,7 +167,7 @@
 
                            <a href="{{route('penduduk.edit', $p->id)}}" class="badge bg-warning mb-2">Edit</a>
 
-                           <a href="/penduduk/delete/{{ $p->id }}" class="badge bg-danger mb-2">Hapus</a>
+                           <a href="/penduduk/delete/{{ $p->id }}" onclick="return confirm('apakah anda yakin ?')" class="badge bg-danger mb-2">Hapus</a>
                         </td>
                     </tr>
                     

@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desa Singkir</title>
     
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="{{ asset("assets/css/main/app.css") }}">
+    <link rel="shortcut icon" href="{{ asset("assets/images/logo/favicon.svg") }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset("assets/images/logo/favicon.png") }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset("assets/extensions/summernote/summernote-lite.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/compiled/css/form-editor-summernote.css") }}" />
     {{-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+   
 
    <style>
     /* ukuran peta */
@@ -20,7 +23,7 @@
 </style> --}}
 
     
-<link rel="stylesheet" href="assets/css/shared/iconly.css">
+<link rel="stylesheet" href="{{ asset("assets/css/shared/iconly.css") }}">
 
 </head>
 
