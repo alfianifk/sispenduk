@@ -10,4 +10,8 @@ class Dusun extends Model
     use HasFactory;
     protected $table = 't_dusun';
     protected $guarded = ['id'];
+    
+    public function kk(){
+        return $this->hasMany(Kk::class);
+    }
 }

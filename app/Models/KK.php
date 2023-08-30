@@ -15,13 +15,12 @@ class KK extends Model
     protected $guarded = ['id'];
 
     public function penduduk() {
-        return $this->hasMany(Penduduk::class);
+        return $this->hasMany(Penduduk::class, 'kk_id');
     }
 
     public function dusun() {
         return $this->hasMany(Dusun::class);
     }
-
     // public function pendudukDetails() {
     //     return $this->hasOne(Penduduk::class);
     // }

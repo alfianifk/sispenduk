@@ -65,12 +65,19 @@
                                 <h4 class="card-title">
                                   <a href="/articles/{{ $article->id }}">{{ $article->title; }}</a>
                                 </h4>
-                                <p class="card-text">
-                                  <p id="content">{{ htmlspecialchars(substr($article->content, 700, 250)) }}{{ strlen($article->content) > 250 ? '...' : '' }}</p>
-                                  <a href="/articles/{{ $article->id }}" class="btn btn-light-primary">Baca selengkapnya</a>
-                                </p>
-                              </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <p id="content">{!! substr($article->content, 0, 200) !!}</p>
+                                  </div>
+                                  <div class="col-md-6">
+                                    {{-- <p id="content">{!! substr($article->content, 300, 250) !!}}</p> --}}
+                                    <p>Desa Singkir adalah sebuah desa yang terletak di Kecamatan Cikalong, Kabupaten Tasikmalaya, Jawa Barat, Indonesia.
 
+                                      Desa ini memiliki luas wilayah sekitar 975,75 Ha dan terletak di ketinggian sekitar 1500 meter di atas permukaan laut.</p>
+                                    <a href="/articles/{{ $article->id }}" class="btn btn-light-primary">Baca selengkapnya</a>
+                                  </div>
+                                </div>                   
+                              </div>
                               <div class="card-footer d-flex justify-content-between">
                                 <span>Penulis : {{ $article->author; }}</span>
                               </div>
@@ -88,28 +95,28 @@
                     <h4 class="card-title">Aparatur Desa Singkir</h4>
                   </div>
                   <div
-                    id="carouselExampleSlidesOnly"
+                    id="aparat"
                     class="carousel slide"
                     data-bs-ride="carousel"
                   >
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <img
-                          src="assets/images/thumbnail/img.png"
+                          src="assets/images/aparat/1.png"
                           class="d-block w-100"
                           alt="Image Architecture"
                         />
                       </div>
                       <div class="carousel-item">
                         <img
-                          src="assets/images/thumbnail/img.png"
+                          src="assets/images/aparat/2.png"
                           class="d-block w-100"
                           alt="Image Mountain"
                         />
                       </div>
                       <div class="carousel-item">
                         <img
-                          src="assets/images/thumbnail/img.png"
+                          src="assets/images/aparat/3.png"
                           class="d-block w-100"
                           alt="Image Jump"
                         />
@@ -117,7 +124,7 @@
                     </div>
                     <a
                       class="carousel-control-prev"
-                      href="#carouselExampleControls"
+                      href="#aparat"
                       role="button"
                       data-bs-slide="prev"
                     >
@@ -129,7 +136,7 @@
                     </a>
                     <a
                       class="carousel-control-next"
-                      href="#carouselExampleControls"
+                      href="#aparat"
                       role="button"
                       data-bs-slide="next"
                     >
@@ -139,22 +146,6 @@
                       ></span>
                       <span class="visually-hidden">Next</span>
                     </a>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sunt assumenda mollitia officia dolorum eius
-                      quasi.Chocolate sesame snaps apple pie danish cupcake
-                      sweet roll jujubes tiramisu.
-                    </p>
-                    <p class="card-text">
-                      Gummies bonbon apple pie fruitcake icing biscuit apple
-                      pie jelly-o sweet roll. Toffee sugar plum sugar plum
-                      jelly-o jujubes bonbon dessert carrot cake. Sweet pie
-                      candy jelly. Sesame snaps biscuit sugar plum. Sweet roll
-                      topping fruitcake. Caramels liquorice biscuit ice cream
-                      fruitcake cotton candy tart.
-                    </p>
                   </div>
                 </div>
               </div>

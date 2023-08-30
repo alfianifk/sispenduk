@@ -51,16 +51,15 @@ class DusunController extends Controller
 
     public function show(Dusun $dusun)
     {
-        $kk = KK::all()->where('dusun_id', $dusun->id);
-
-        
-        // foreach ($kk as $k) {
-        //     $penduduk = Penduduk::all()->where('kk_id', $k->id);
-        //     dd($penduduk);
-        // }
         $title = 'Lihat Data Dusun';
-        return view('admin.lihat-dusun', compact('title', 'kk'));
+        return view('admin.lihat-dusun', compact('title', 'dusun'));
         
+    }
+
+
+    public function penduduk(KK $kk){
+        $title = "Detail KK";
+        return view('admin.lihat-penduduk', compact('kk', 'title'));
     }
 
 

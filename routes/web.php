@@ -50,4 +50,5 @@ Route::middleware('auth')->group(function(){
     Route::post('/input-artikel', [AdminController::class, 'storeArticle'])->name('input-artikel');
 
     Route::resource('/dusun', DusunController::class);
+    Route::get('/lihat-penduduk/{kk}', [DusunController::class, 'penduduk'])->name('dusun.penduduk');
 });
